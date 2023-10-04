@@ -11,7 +11,7 @@ function App() {
       <GridItem area={"nav"} py='2.5'>
        <Navbar />
       </GridItem>
-      <Show above="lg">
+      <Show>
       <GridItem area={"aside"} >
         <GameGrid />
         {/* <h1>Aside</h1> */}
