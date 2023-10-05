@@ -2,6 +2,7 @@
 // import apiClient from "../services/api-client";
 // import { CanceledError } from "axios";
 import useData from "./useData";
+import { Genre } from "./useGenres";
 
 export interface platform {
     id: number;
@@ -15,8 +16,8 @@ export interface Game {
   background_image: string;
   parent_platforms: {platform: platform}[];  // note
   metacritic: number;
-}
-const useGames = () => useData<Game>('/games')
+} 
+const useGames = (selectedGenre: Genre | null) => useData<Game>('/games', {params:{genres: selectedGenre?.id}},[selectedGenre?.id])
 // interface FetchGamesResponse {
 //   count: number; 
 //   results: Game[];
