@@ -1,6 +1,7 @@
 // import { useEffect, useState } from "react";
 // import apiClient from "../services/api-client";
 // import { CanceledError } from "axios";
+import { GameQuery } from "../App";
 import useData from "./useData";
 import { Genre } from "./useGenres";
 
@@ -18,14 +19,20 @@ export interface Game {
   metacritic: number;
 }
 const useGames = (
-  selectedGenre: Genre | null,
-  selectedPlatform: platform | null
+  // selectedGenre: Genre | null,
+  // selectedPlatform: platform | null
+  gameQuery: GameQuery
 ) =>
-  useData<Game>(
-    "/games",
-    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-    [selectedGenre?.id,selectedPlatform?.id]
-  );
+useData<Game>(
+  "/games",
+  { params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id } },
+  [gameQuery]
+);
+  // useData<Game>(
+  //   "/games",
+  //   { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
+  //   [selectedGenre?.id, selectedPlatform?.id]
+  // );
 // interface FetchGamesResponse {
 //   count: number;
 //   results: Game[];
