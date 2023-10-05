@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
+// import { useEffect, useState } from "react";
+// import apiClient from "../services/api-client";
+// import { CanceledError } from "axios";
 import useData from "./useData";
 
 export interface platform {
@@ -17,7 +17,6 @@ export interface Game {
   metacritic: number;
 }
 const useGames = () => useData<Game>('/games')
-
 // interface FetchGamesResponse {
 //   count: number; 
 //   results: Game[];
@@ -40,7 +39,6 @@ const useGames = () => useData<Game>('/games')
 //       .catch((err) => {
 //         if (err instanceof CanceledError) return;
 //         setError(err.message);
-//         setLoading(false);
 //       });
 
 //     return () => controller.abort();

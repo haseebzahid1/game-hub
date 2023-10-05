@@ -34,4 +34,3 @@ const useData = <T>(endpoint: string) => {
 }
 
 export default useData
-
