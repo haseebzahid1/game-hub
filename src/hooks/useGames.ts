@@ -5,21 +5,29 @@ import useData from "./useData";
 import { Genre } from "./useGenres";
 
 export interface platform {
-    id: number;
-    name:string;
-    slug: string;
+  id: number;
+  name: string;
+  slug: string;
 }
 
 export interface Game {
   id: number;
   name: string;
   background_image: string;
-  parent_platforms: {platform: platform}[];  // note
+  parent_platforms: { platform: platform }[]; // note
   metacritic: number;
-} 
-const useGames = (selectedGenre: Genre | null) => useData<Game>('/games', {params:{genres: selectedGenre?.id}},[selectedGenre?.id])
+}
+const useGames = (
+  selectedGenre: Genre | null,
+  selectedPlatform: platform | null
+) =>
+  useData<Game>(
+    "/games",
+    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
+    [selectedGenre?.id,selectedPlatform?.id]
+  );
 // interface FetchGamesResponse {
-//   count: number; 
+//   count: number;
 //   results: Game[];
 // }
 
