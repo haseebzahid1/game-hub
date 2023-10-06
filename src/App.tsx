@@ -18,6 +18,7 @@ function App() {
   // const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
   // const [selectPlatform, setSelectPlatform] = useState<platform | null>(null)
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
+  
   return (
     <Grid  templateAreas={{
       base: `"nav" "main"`,
