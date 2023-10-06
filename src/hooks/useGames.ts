@@ -23,16 +23,22 @@ const useGames = (
   // selectedPlatform: platform | null
   gameQuery: GameQuery
 ) =>
-useData<Game>(
-  "/games",
-  { params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id } },
-  [gameQuery]
-);
-  // useData<Game>(
-  //   "/games",
-  //   { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-  //   [selectedGenre?.id, selectedPlatform?.id]
-  // );
+  useData<Game>(
+    "/games",
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder
+      },
+    },
+    [gameQuery]
+  );
+// useData<Game>(
+//   "/games",
+//   { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
+//   [selectedGenre?.id, selectedPlatform?.id]
+// );
 // interface FetchGamesResponse {
 //   count: number;
 //   results: Game[];
