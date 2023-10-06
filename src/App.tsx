@@ -5,13 +5,14 @@ import GenreList from "./components/GenreList";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
-import { Game, platform } from "./hooks/useGames";
+import { platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: platform | null;
-  sortOrder: string
+  sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
      
      
       <GridItem area={"nav"} py='2.5'>
-       <Navbar />
+       <Navbar onSearch={(searchText) => setGameQuery({...gameQuery, searchText}) } />
       </GridItem>
       <Show above="lg">
       <GridItem area={"aside"} paddingX={5}>

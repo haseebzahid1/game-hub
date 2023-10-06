@@ -3,7 +3,7 @@
 // import { CanceledError } from "axios";
 import { GameQuery } from "../App";
 import useData from "./useData";
-import { Genre } from "./useGenres";
+// import { Genre } from "./useGenres";
 
 export interface platform {
   id: number;
@@ -29,7 +29,8 @@ const useGames = (
       params: {
         genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOrder
+        ordering: gameQuery.sortOrder,
+        search: gameQuery.searchText
       },
     },
     [gameQuery]
